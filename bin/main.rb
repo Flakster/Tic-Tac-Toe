@@ -3,11 +3,11 @@
 $current_player = 'X' # rubocop:disable Style/GlobalVars
 # should be an instance variable from the game class
 
-$players = Hash.new # rubocop:disable Style/GlobalVars
+$players = {} # rubocop:disable Style/GlobalVars
 # should be an instance variable from the game class
 
 def switch_player
-  $current_player = $current_player == 'X' ? '0' : 'X'
+  $current_player = $current_player == 'X' ? '0' : 'X' # rubocop:disable Style/GlobalVars
 end
 
 def digit?(pos)
@@ -16,7 +16,7 @@ end
 
 def taken?(pos) # rubocop:disable Lint/UnusedMethodArgument
   false
-  #should ask to the board object if the position is taken 
+  # should ask to the board object if the position is taken 
 end
 
 def read_position
@@ -35,24 +35,24 @@ def read_position
 end
 
 puts "\n\nWelcome to Tic Tac Toe"
-print "Player 1 name: "
+print 'Player 1 name: '
 player_name = gets.chomp
 $players['X'] = player_name # rubocop:disable Style/GlobalVars
-print "Player 2 name: "
+print 'Player 2 name: '
 player_name = gets.chomp
 $players['0'] = player_name # rubocop:disable Style/GlobalVars
 puts ' => Enter 0 to exit <='
-$continue= 'Y' # rubocop:disable Style/GlobalVars
-while $continue.upcase != 'N'
+$continue = 'Y' # rubocop:disable Style/GlobalVars
+while $continue.upcase != 'N'  # rubocop:disable Style/GlobalVars
   loop do
-    puts "\n\nIt's turn for #{$current_player}"
+    puts "\n\nIt's turn for #{$current_player}"  # rubocop:disable Style/GlobalVars
     print "#{$players[$current_player]}, please choose a position: "
     position = read_position
     break if position.to_i.zero?
-    puts "\n\n => Position #{position} of the board should show: #{$current_player}"
+
+    puts "\n\n => Position #{position} of the board should show: #{$current_player}"  # rubocop:disable Style/GlobalVars
     switch_player
   end
-  print "Play again? (Y/N): "
-  $continue = gets.chomp
+  print 'Play again? (Y/N): '
+  $continue = gets.chomp # rubocop:disable Style/GlobalVars
 end
-
