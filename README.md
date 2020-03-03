@@ -8,7 +8,7 @@
 
 # Live demo
 
-Play it online here
+Play it online [here](https://repl.it/@Flakster/Tic-Tac-Toe)
 
 # Built with
 
@@ -24,11 +24,11 @@ To get a local copy of this repository up and running, follow these steps:
 - Go to the terminal on your local machine and type: **git clone** 
 - Paste the URL you copied before. 
 - Change your local directory by typing **cd Tic-Tac-Toe**
-- Type **ruby main.rb** and press **[Enter]**
+- Type **ruby bin/main.rb** and press **[Enter]**
   
 # Prerequisites
   
- You must have Ruby [installed an your computer](https://www.ruby-lang.org/en/documentation/installation/)
+ You must have Ruby [installed on your computer](https://www.ruby-lang.org/en/documentation/installation/)
   
 # Usage
   
