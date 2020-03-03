@@ -49,7 +49,7 @@ while $continue.upcase != 'N' # rubocop:disable Style/GlobalVars
     print "#{$players[$current_player]}, please choose a position: " # rubocop:disable Style/GlobalVars
     position = read_position
     break if position.to_i.zero?
-    
+
     puts "\n\n => Position #{position} of the board should show: #{$current_player}" # rubocop:disable Style/GlobalVars
     switch_player
   end
