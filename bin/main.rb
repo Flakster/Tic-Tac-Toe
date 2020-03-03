@@ -16,7 +16,7 @@ end
 
 def taken?(pos) # rubocop:disable Lint/UnusedMethodArgument
   false
-  # should ask to the board object if the position is taken 
+  # should ask to the board object if the position is taken
 end
 
 def read_position
@@ -43,14 +43,13 @@ player_name = gets.chomp
 $players['0'] = player_name # rubocop:disable Style/GlobalVars
 puts ' => Enter 0 to exit <='
 $continue = 'Y' # rubocop:disable Style/GlobalVars
-while $continue.upcase != 'N'  # rubocop:disable Style/GlobalVars
+while $continue.upcase != 'N' # rubocop:disable Style/GlobalVars
   loop do
-    puts "\n\nIt's turn for #{$current_player}"  # rubocop:disable Style/GlobalVars
-    print "#{$players[$current_player]}, please choose a position: "
+    puts "\n\nIt's turn for #{$current_player}" # rubocop:disable Style/GlobalVars
+    print "#{$players[$current_player]}, please choose a position: " # rubocop:disable Style/GlobalVars
     position = read_position
     break if position.to_i.zero?
-
-    puts "\n\n => Position #{position} of the board should show: #{$current_player}"  # rubocop:disable Style/GlobalVars
+    puts "\n\n => Position #{position} of the board should show: #{$current_player}" # rubocop:disable Style/GlobalVars
     switch_player
   end
   print 'Play again? (Y/N): '
