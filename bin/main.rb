@@ -16,11 +16,6 @@ def digit?(pos)
   /\A\d\z/.match(pos)
 end
 
-def taken?(pos) # rubocop:disable Lint/UnusedMethodArgument
-  false
-  # should ask to the board object if the position is taken
-end
-
 def read_position
   pos = 0
   loop do
@@ -100,7 +95,7 @@ def board_full?
   $board.none?(nil) ? true : false # rubocop:disable Style/GlobalVars
 end
 
-def winner?(pos)  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
+def winner?(pos) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
   c = (pos.to_i - 1) % 3
   r = (pos.to_i - 1) / 3
   a = [['', '', ''],
@@ -109,8 +104,8 @@ def winner?(pos)  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/Method
   i = 0
   (0..2).each do |row|
     (0..2).each do |col|
-      a[row][col] = $board[i]
-      i+=1
+      a[row][col] = $board[i] # rubocop:disable Style/GlobalVars
+      i += 1
     end
   end
   if a[0][c] == a[1][c] && a[1][c] == a[2][c]
@@ -127,9 +122,8 @@ def winner?(pos)  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/Method
 end
 
 def taken?(pos)
-  $board[pos.to_i-1].nil? ? false : true
+  $board[pos.to_i - 1].nil? ? false : true  # rubocop:disable Style/GlobalVars
 end
-
 
 puts "\n\nWelcome to Tic Tac Toe"
 print 'Player 1 name: '
@@ -141,7 +135,7 @@ $players['0'] = player_name # rubocop:disable Style/GlobalVars
 puts ' => Enter 0 to exit <='
 $continue = 'Y' # rubocop:disable Style/GlobalVars
 while $continue.upcase != 'N' # rubocop:disable Style/GlobalVars
-  $board = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+  $board = [nil, nil, nil, nil, nil, nil, nil, nil, nil] # rubocop:disable Style/GlobalVars
   # this should ocurr in the board initialize method
   loop do
     puts "\n\nIt's turn for #{$current_player}\n\n" # rubocop:disable Style/GlobalVars
@@ -150,15 +144,15 @@ while $continue.upcase != 'N' # rubocop:disable Style/GlobalVars
     position = read_position
     break if position.to_i.zero?
 
-    store_position(position, $current_player)
+    store_position(position, $current_player) # rubocop:disable Style/GlobalVars
     if board_full?
       board_render
-      puts "\n\n=> We have a draw between #{$players['X']} and #{$players['0']}!\n\n"
+      puts "\n\n=> We have a draw between #{$players['X']} and #{$players['0']}!\n\n" # rubocop:disable Style/GlobalVars
       break
     end
     if winner?(position)
       board_render
-      puts "\n\nCongratulations #{$players[$current_player]}, you won!\n\n"
+      puts "\n\nCongratulations #{$players[$current_player]}, you won!\n\n" # rubocop:disable Style/GlobalVars
       break
     end
     switch_player
