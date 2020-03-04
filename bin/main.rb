@@ -47,65 +47,65 @@ def board_render
   end
 end
 
-def pick_char(num)
+def pick_char(num) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
   case num
   when 19..27, 46..54
     '__'
   when 1
-    $board[0].nil? ? ' 1' : '  '
+    $board[0].nil? ? ' 1' : '  ' # rubocop:disable Style/GlobalVars
   when 4
-    $board[1].nil? ? ' 2' : '  '
+    $board[1].nil? ? ' 2' : '  ' # rubocop:disable Style/GlobalVars
   when 7
-    $board[2].nil? ? ' 3' : '  '
+    $board[2].nil? ? ' 3' : '  ' # rubocop:disable Style/GlobalVars
   when 11
-    $board[0].nil? ? '  ' : ' ' + $board[0]
+    $board[0].nil? ? '  ' : ' ' + $board[0] # rubocop:disable Style/GlobalVars
   when 14
-    $board[1].nil? ? '  ' : ' ' + $board[1]
+    $board[1].nil? ? '  ' : ' ' + $board[1] # rubocop:disable Style/GlobalVars
   when 17
-    $board[2].nil? ? '  ' : ' ' + $board[2]
+    $board[2].nil? ? '  ' : ' ' + $board[2] # rubocop:disable Style/GlobalVars
   when 28
-    $board[3].nil? ? ' 4' : '  '
+    $board[3].nil? ? ' 4' : '  ' # rubocop:disable Style/GlobalVars
   when 31
-    $board[4].nil? ? ' 5' : '  '
+    $board[4].nil? ? ' 5' : '  ' # rubocop:disable Style/GlobalVars
   when 34
-    $board[5].nil? ? ' 6' : '  '
+    $board[5].nil? ? ' 6' : '  ' # rubocop:disable Style/GlobalVars
   when 38
-    $board[3].nil? ? '  ' : ' ' + $board[3]
+    $board[3].nil? ? '  ' : ' ' + $board[3] # rubocop:disable Style/GlobalVars
   when 41
-    $board[4].nil? ? '  ' : ' ' + $board[4]
+    $board[4].nil? ? '  ' : ' ' + $board[4] # rubocop:disable Style/GlobalVars
   when 44
-    $board[5].nil? ? '  ' : ' ' + $board[5]
+    $board[5].nil? ? '  ' : ' ' + $board[5] # rubocop:disable Style/GlobalVars
   when 55
-    $board[6].nil? ? ' 7' : '  '
+    $board[6].nil? ? ' 7' : '  ' # rubocop:disable Style/GlobalVars
   when 58
-    $board[7].nil? ? ' 8' : '  '
+    $board[7].nil? ? ' 8' : '  ' # rubocop:disable Style/GlobalVars
   when 61
-    $board[8].nil? ? ' 9' : '  '
+    $board[8].nil? ? ' 9' : '  ' # rubocop:disable Style/GlobalVars
   when 65
-    $board[6].nil? ? '  ' : ' ' + $board[6]
+    $board[6].nil? ? '  ' : ' ' + $board[6] # rubocop:disable Style/GlobalVars
   when 68
-    $board[7].nil? ? '  ' : ' ' + $board[7]
+    $board[7].nil? ? '  ' : ' ' + $board[7] # rubocop:disable Style/GlobalVars
   when 71
-    $board[8].nil? ? '  ' : ' ' + $board[8]
+    $board[8].nil? ? '  ' : ' ' + $board[8] # rubocop:disable Style/GlobalVars
   else
     '  '
   end
 end
 
 def store_position(pos, mark)
-  $board[pos.to_i-1] = mark
+  $board[pos.to_i - 1] = mark # rubocop:disable Style/GlobalVars
 end
 
 def board_full?
-  $board.none?(nil) ? true : false
+  $board.none?(nil) ? true : false # rubocop:disable Style/GlobalVars
 end
 
-def winner?(pos)
-  c = (pos.to_i - 1)%3
-  r = (pos.to_i - 1)/3
-  a = [['','',''],
-       ['','',''],
-       ['','','']]
+def winner?(pos)  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
+  c = (pos.to_i - 1) % 3
+  r = (pos.to_i - 1) / 3
+  a = [['', '', ''],
+       ['', '', ''],
+       ['', '', '']]
   i = 0
   (0..2).each do |row|
     (0..2).each do |col|
