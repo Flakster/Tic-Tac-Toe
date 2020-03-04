@@ -2,7 +2,7 @@
   This is the development in Ruby language of the classical game (aka noughts and crosses) 
   in which two players take turns to place their marks ( 0 or X ) in the available positions 
   of a 3 x 3 board. The first player who achieves to place three of their marks in a horizontal,
-  vertical, or diagonal row is the winner. 
+  vertical, or diagonal line is the winner. 
 
 ![Tictactoesample](https://user-images.githubusercontent.com/53324035/75595131-2d7d5880-5a59-11ea-98fe-0e5aee0920c3.gif)
 
@@ -34,7 +34,7 @@ To get a local copy of this repository up and running, follow these steps:
   
  Enter the names of the players. The first turn will be for the one with the X's.
  Select the position you want by following the numeric guide (1 to 9). Use your 
- turn to place three od your marks in a line o to block your opponent to do so.
+ turn to place three of your marks in a line o to block your opponent to do so.
  
  # Author
  
