@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-$board = [nil, '0', 'X', nil, 'X', nil, 'X', '0', nil]
+$board = []
 
 $current_player = 'X' # rubocop:disable Style/GlobalVars
 # should be an instance variable from the game class
@@ -93,6 +93,44 @@ def pick_char(num)
   char
 end
 
+def store_position(pos, mark)
+  $board[pos.to_i-1] = mark
+end
+
+def board_full?
+  $board.none?(nil) ? true : false
+end
+
+def winner?(pos)
+  c = (pos.to_i - 1)%3
+  r = (pos.to_i - 1)/3
+  a = [['','',''],
+       ['','',''],
+       ['','','']]
+  i = 0
+  (0..2).each do |row|
+    (0..2).each do |col|
+      a[row][col] = $board[i]
+      i+=1
+    end
+  end
+  if a[0][c] == a[1][c] && a[1][c] == a[2][c]
+    true
+  elsif a[r][0] == a[r][1] && a[r][1] == a[r][2]
+    true
+  elsif (r - c).zero? && a[0][0] == a[1][1] && a[1][1] == a[2][2]
+    true
+  elsif r + c == 2 && a[2][0] == a[1][1] && a[1][1] == a[0][2]
+    true
+  else
+    false
+  end
+end
+
+def taken?(pos)
+  $board[pos.to_i-1].nil? ? false : true
+end
+
 
 puts "\n\nWelcome to Tic Tac Toe"
 print 'Player 1 name: '
@@ -104,6 +142,8 @@ $players['0'] = player_name # rubocop:disable Style/GlobalVars
 puts ' => Enter 0 to exit <='
 $continue = 'Y' # rubocop:disable Style/GlobalVars
 while $continue.upcase != 'N' # rubocop:disable Style/GlobalVars
+  $board = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+  # this should ocurr in the board initialize method
   loop do
     puts "\n\nIt's turn for #{$current_player}\n\n" # rubocop:disable Style/GlobalVars
     board_render
@@ -111,6 +151,17 @@ while $continue.upcase != 'N' # rubocop:disable Style/GlobalVars
     position = read_position
     break if position.to_i.zero?
 
+    store_position(position, $current_player)
+    if board_full?
+      board_reader
+      puts "\n\n=> We have a draw between #{$players['X']} and #{$players['0']}!\n\n"
+      break
+    end
+    if winner?(position)
+      board_render
+      puts "\n\nCongratulations #{$players[$current_player]}, you won!\n\n"
+      break
+    end
     switch_player
   end
   print 'Play again? (Y/N): '
