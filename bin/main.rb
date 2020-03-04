@@ -122,7 +122,7 @@ def winner?(pos) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodL
 end
 
 def taken?(pos)
-  $board[pos.to_i - 1].nil? ? false : true  # rubocop:disable Style/GlobalVars
+  $board[pos.to_i - 1].nil? ? false : true # rubocop:disable Style/GlobalVars
 end
 
 puts "\n\nWelcome to Tic Tac Toe"
