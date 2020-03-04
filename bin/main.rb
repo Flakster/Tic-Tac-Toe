@@ -47,7 +47,6 @@ def board_render
   end
 end
 
-
 def pick_char(num)
   case num
   when 19..27, 46..54
