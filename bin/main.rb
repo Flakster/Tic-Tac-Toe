@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-$board = []
+$board = [] # rubocop:disable Style/GlobalVars
 
 $current_player = 'X' # rubocop:disable Style/GlobalVars
 # should be an instance variable from the game class
@@ -39,58 +39,58 @@ end
 def board_render
   (1..81).each do |i|
     print pick_char(i)
-    if (i%9).zero?
+    if (i % 9).zero?
       puts
-    elsif (i%3).zero?
+    elsif (i % 3).zero?
       print '|'
     end
   end
 end
 
+
 def pick_char(num)
-  char=''
-  if num >= 19 && num <= 27 || num >= 46 && num <= 54
-    char = '__'
-  elsif num == 1 && $board[0].nil?
-    char = '1 '
-  elsif num == 4 && $board[1].nil?
-    char = '2 '
-  elsif num == 7 && $board[2].nil?
-    char = '3 '
-  elsif num == 11 && !$board[0].nil?
-    char = ' ' + $board[0]
-  elsif num == 14 && !$board[1].nil?
-    char = ' ' + $board[1]
-  elsif num == 17 && !$board[2].nil?
-    char = ' ' + $board[2]
-  elsif num == 28 && $board[3].nil?
-    char = '4 '
-  elsif num == 31 && $board[4].nil?
-    char = '5 '
-  elsif num == 34 && $board[5].nil?
-    char = '6 '
-  elsif num == 38 && !$board[3].nil?
-    char = ' ' + $board[3]
-  elsif num == 41 && !$board[4].nil?
-    char = ' ' + $board[4]
-  elsif num == 44 && !$board[5].nil?
-    char = ' ' + $board[5]
-  elsif num == 55 && $board[6].nil?
-    char = '7 '
-  elsif num == 58 && $board[7].nil?
-    char = '8 '
-  elsif num == 61 && $board[8].nil?
-    char = '9 '
-  elsif num == 65 && !$board[6].nil?
-    char = ' ' + $board[6]
-  elsif num == 68 && !$board[7].nil?
-    char = ' ' + $board[7]
-  elsif num == 71 && !$board[8].nil?
-    char = ' ' + $board[8]
+  case num
+  when 19..27, 46..54
+    '__'
+  when 1
+    $board[0].nil? ? ' 1' : '  '
+  when 4
+    $board[1].nil? ? ' 2' : '  '
+  when 7
+    $board[2].nil? ? ' 3' : '  '
+  when 11
+    $board[0].nil? ? '  ' : ' ' + $board[0]
+  when 14
+    $board[1].nil? ? '  ' : ' ' + $board[1]
+  when 17
+    $board[2].nil? ? '  ' : ' ' + $board[2]
+  when 28
+    $board[3].nil? ? ' 4' : '  '
+  when 31
+    $board[4].nil? ? ' 5' : '  '
+  when 34
+    $board[5].nil? ? ' 6' : '  '
+  when 38
+    $board[3].nil? ? '  ' : ' ' + $board[3]
+  when 41
+    $board[4].nil? ? '  ' : ' ' + $board[4]
+  when 44
+    $board[5].nil? ? '  ' : ' ' + $board[5]
+  when 55
+    $board[6].nil? ? ' 7' : '  '
+  when 58
+    $board[7].nil? ? ' 8' : '  '
+  when 61
+    $board[8].nil? ? ' 9' : '  '
+  when 65
+    $board[6].nil? ? '  ' : ' ' + $board[6]
+  when 68
+    $board[7].nil? ? '  ' : ' ' + $board[7]
+  when 71
+    $board[8].nil? ? '  ' : ' ' + $board[8]
   else
-    char = '  '
+    '  '
   end
-  char
 end
 
 def store_position(pos, mark)
@@ -153,7 +153,7 @@ while $continue.upcase != 'N' # rubocop:disable Style/GlobalVars
 
     store_position(position, $current_player)
     if board_full?
-      board_reader
+      board_render
       puts "\n\n=> We have a draw between #{$players['X']} and #{$players['0']}!\n\n"
       break
     end
