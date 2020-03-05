@@ -2,7 +2,7 @@ require_relative '../lib/board'
 require_relative '../lib/player'
 
 class Game
-  attr_accessor :players, :board, :players, :current_player, :continue
+  attr_accessor :players, :board, :current_player, :continue
   def initialize
     @board = Board.new
     @players = {}
@@ -13,17 +13,15 @@ class Game
   end
 
   def switch_player
-    self.current_player = self.current_player == 'X' ? '0' : 'X'
+    self.current_player = self.current_player == 'X' ? '0' : 'X' # rubocop:disable Style/RedundantSelf
   end
 
   def two_d_array
-    ar = [['1', '2', '3'],
-         ['4', '5', '6'],
-         ['7', '8', '9']]
+    ar = [%w[1 2 3], %w[4 5 6], %w[7 8 9]]
     i = 0
     (0..2).each do |row|
       (0..2).each do |col|
-        ar[row][col] = self.board.positions[i]
+        ar[row][col] = board.positions[i]
         i += 1
       end
     end
@@ -48,14 +46,14 @@ class Game
   end
 
   def reset
-    self.board = Board.new
-    self.current_player = 'X'
-    self.continue = true
+    self.board = Board.new # rubocop:disable Style/RedundantSelf
+    self.current_player = 'X' # rubocop:disable Style/RedundantSelf
+    self.continue = true # rubocop:disable Style/RedundantSelf
   end
 
   def display_scores
-    self.players['X'].name + ': ' + self.players['X'].score.to_s + ' - ' +
-    self.players['0'].name + ': ' + self.players['0'].score.to_s
+    players['X'].name + ': ' + players['X'].score.to_s + ' - ' +
+    players['0'].name + ': ' + players['0'].score.to_s
   end
   
 end
