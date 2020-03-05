@@ -21,5 +21,16 @@ module Interface
     end
     pos
   end
+  
+  def self.board_render(game)
+    (1..81).each do |i|
+      print game.board.pick_char(i)
+      if (i % 9).zero?
+        puts
+      elsif (i % 3).zero?
+        print '|'
+      end
+    end
+  end
 
 end

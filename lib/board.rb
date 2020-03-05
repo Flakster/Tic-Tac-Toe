@@ -15,17 +15,6 @@ class Board
   def taken?(pos)
     self.positions[pos.to_i - 1].nil? ? false : true
   end
-
-  def render
-    (1..81).each do |i|
-      print pick_char(i)
-      if (i % 9).zero?
-        puts
-      elsif (i % 3).zero?
-        print '|'
-      end
-    end
-  end
   
   def pick_char(num) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
     case num
