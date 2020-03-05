@@ -6,7 +6,7 @@ class Player
     @name = name
     @mark = mark
     @score = 0
-  end 
+  end
 
   def increase_score
     self.score += 1

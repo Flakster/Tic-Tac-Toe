@@ -2,7 +2,6 @@
 require './lib/game'
 
 module Interface
-
   def self.digit?(pos)
     /\A\d\z/.match(pos)
   end
@@ -11,7 +10,7 @@ module Interface
     pos = 0
     loop do
       pos = gets.chomp
-      if !Interface::digit?(pos)
+      if !Interface.digit?(pos)
         print 'Please enter a number between 1 and 9 (or 0 to exit): '
       elsif game.board.taken?(pos)
         print 'That position is already taken, please choose an empty one: '
@@ -21,7 +20,7 @@ module Interface
     end
     pos
   end
-  
+
   def self.board_render(game)
     (1..81).each do |i|
       print game.board.pick_char(i)
@@ -32,5 +31,4 @@ module Interface
       end
     end
   end
-
 end

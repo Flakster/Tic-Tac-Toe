@@ -28,7 +28,7 @@ class Game
     ar
   end
 
-  def winner?(pos) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
+  def winner?(pos) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
     c = (pos.to_i - 1) % 3
     r = (pos.to_i - 1) / 3
     a = two_d_array
@@ -46,14 +46,13 @@ class Game
   end
 
   def reset
-    self.board = Board.new # rubocop:disable Style/RedundantSelf
-    self.current_player = 'X' # rubocop:disable Style/RedundantSelf
-    self.continue = true # rubocop:disable Style/RedundantSelf
+    self.board = Board.new
+    self.current_player = 'X'
+    self.continue = true
   end
 
   def display_scores
     players['X'].name + ': ' + players['X'].score.to_s + ' - ' +
-    players['0'].name + ': ' + players['0'].score.to_s
+      players['0'].name + ': ' + players['0'].score.to_s
   end
-  
 end
