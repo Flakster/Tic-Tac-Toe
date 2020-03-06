@@ -2,10 +2,10 @@
 require_relative '../lib/interface'
 require_relative '../lib/game'
 
-puts "\n\nWelcome to Tic Tac Toe!" + 
-  "\n\nUse your turn to place your mark on the board looking for" +
-  "\nachieving three in a line (either column, row or diagonal)," +
-  "\nbefore your opponent.\n\n"
+puts "\n\nWelcome to Tic Tac Toe!" \
+     "\n\nUse your turn to place your mark on the board looking for" \
+     "\nachieving three in a line (either column, row or diagonal)," \
+     "\nbefore your opponent.\n\n"
 game = Game.new
 print 'Player 1 name: '
 game.players['X'].name = gets.chomp.capitalize
