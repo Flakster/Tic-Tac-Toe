@@ -23,7 +23,7 @@ module Interface
 
   def self.board_render(game)
     (1..81).each do |i|
-      print game.board.pick_char(i)
+      print game.board.pick_string(i)
       if (i % 9).zero?
         puts
       elsif (i % 3).zero?

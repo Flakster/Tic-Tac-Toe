@@ -16,48 +16,27 @@ class Board
     positions[pos.to_i - 1].nil? ? false : true
   end
 
-  def pick_char(num) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
-    case num
-    when 19..27, 46..54
-      '__'
-    when 1
-      positions[0].nil? ? ' 1' : '  '
-    when 4
-      positions[1].nil? ? ' 2' : '  '
-    when 7
-      positions[2].nil? ? ' 3' : '  '
-    when 11
-      positions[0].nil? ? '  ' : ' ' + positions[0]
-    when 14
-      positions[1].nil? ? '  ' : ' ' + positions[1]
-    when 17
-      positions[2].nil? ? '  ' : ' ' + positions[2]
-    when 28
-      positions[3].nil? ? ' 4' : '  '
-    when 31
-      positions[4].nil? ? ' 5' : '  '
-    when 34
-      positions[5].nil? ? ' 6' : '  '
-    when 38
-      positions[3].nil? ? '  ' : ' ' + positions[3]
-    when 41
-      positions[4].nil? ? '  ' : ' ' + positions[4]
-    when 44
-      positions[5].nil? ? '  ' : ' ' + positions[5]
-    when 55
-      positions[6].nil? ? ' 7' : '  '
-    when 58
-      positions[7].nil? ? ' 8' : '  '
-    when 61
-      positions[8].nil? ? ' 9' : '  '
-    when 65
-      positions[6].nil? ? '  ' : ' ' + positions[6]
-    when 68
-      positions[7].nil? ? '  ' : ' ' + positions[7]
-    when 71
-      positions[8].nil? ? '  ' : ' ' + positions[8]
-    else
-      '  '
+  def pick_string(num)
+    selected_string = '  '
+    if (19..27).cover?(num) || (46..54).cover?(num)
+      selected_string = '__'
     end
+    if num % 27 < 8 && num % 3 == 1
+      selected_string = number(num)
+    end
+    if num % 27 > 8 && num % 27 < 18 && num % 3 == 2
+      selected_string = mark(num)
+    end 
+    selected_string
+  end
+
+  def number(num)
+    pos = (num / 3) - (num / 27) * 6
+    positions[pos].nil? ? ' ' + (pos + 1).to_s : '  '
+  end
+
+  def mark(num)
+    pos = (num / 3) - (num / 27) * 6 - 3
+    positions[pos].nil? ? '  ' : ' ' + positions[pos]
   end
 end
