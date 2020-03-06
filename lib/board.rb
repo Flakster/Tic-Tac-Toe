@@ -18,15 +18,9 @@ class Board
 
   def pick_string(num)
     selected_string = '  '
-    if (19..27).cover?(num) || (46..54).cover?(num)
-      selected_string = '__'
-    end
-    if num % 27 < 8 && num % 3 == 1
-      selected_string = number(num)
-    end
-    if num % 27 > 8 && num % 27 < 18 && num % 3 == 2
-      selected_string = mark(num)
-    end 
+    selected_string = '__' if (19..27).cover?(num) || (46..54).cover?(num)
+    selected_string = number(num) if num % 27 < 8 && num % 3 == 1
+    selected_string = mark(num) if num % 27 > 8 && num % 27 < 18 && num % 3 == 2
     selected_string
   end
 

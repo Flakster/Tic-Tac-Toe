@@ -13,7 +13,7 @@ class Game
   end
 
   def switch_player
-      self.current_player = current_player == 'X' ? '0' :'X'
+    self.current_player = current_player == 'X' ? '0' :'X'
   end
 
   def two_d_array
@@ -39,32 +39,32 @@ class Game
     end
   end
 
-  def win_col?(a, c)
-    if a[0][c] == a[1][c] && a[1][c] == a[2][c]
+  def win_col?(arr, col)
+    if arr[0][col] == arr[1][col] && arr[1][col] == arr[2][col]
       true
     else
       false
     end
   end
 
-  def win_row?(a, r)
-    if a[r][0] == a[r][1] && a[r][1] == a[r][2]
+  def win_row?(arr, row)
+    if arr[row][0] == arr[row][1] && arr[row][1] == arr[row][2]
       true
     else
       false
     end
   end
 
-  def win_diag1?(a, c, r)
-    if (r - c).zero? && a[0][0] == a[1][1] && a[1][1] == a[2][2]
+  def win_diag1?(arr, col, row)
+    if (row - col).zero? && arr[0][0] == arr[1][1] && arr[1][1] == arr[2][2]
       true
     else
       false
     end
   end
 
-  def win_diag2?(a, c, r)
-    if r + c == 2 && a[2][0] == a[1][1] && a[1][1] == a[0][2]
+  def win_diag2?(arr, col, row)
+    if row + col == 2 && arr[2][0] == arr[1][1] && arr[1][1] == arr[0][2]
       true
     else
       false
