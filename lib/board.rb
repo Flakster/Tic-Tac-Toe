@@ -18,21 +18,21 @@ class Board
 
   def pick_string(num)
     selected_string = '  '
-    selected_string = '__' if is_line?(num)
-    selected_string = number(num) if is_number_placeholder?(num)
-    selected_string = mark(num) if is_mark_placeholder?(num)
+    selected_string = '__' if line?(num)
+    selected_string = number(num) if number_placeholder?(num)
+    selected_string = mark(num) if mark_placeholder?(num)
     selected_string
   end
 
-  def is_line?(num)
+  def line?(num)
     (19..27).cover?(num) || (46..54).cover?(num)
   end
 
-  def is_number_placeholder?(num)
+  def number_placeholder?(num)
     num % 27 < 8 && num % 3 == 1
   end
 
-  def is_mark_placeholder?(num)
+  def mark_placeholder?(num)
     num % 27 > 8 && num % 27 < 18 && num % 3 == 2
   end
 
