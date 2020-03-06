@@ -28,17 +28,43 @@ class Game
     ar
   end
 
-  def winner?(pos) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  def winner?(pos)
     c = (pos.to_i - 1) % 3
     r = (pos.to_i - 1) / 3
     a = two_d_array
+    if win_col?(a, c) || win_row?(a, r) || win_diag1?(a, c, r) || win_diag2?(a, c, r)
+      true
+    else
+      false
+    end
+  end
+
+  def win_col?(a, c)
     if a[0][c] == a[1][c] && a[1][c] == a[2][c]
       true
-    elsif a[r][0] == a[r][1] && a[r][1] == a[r][2]
+    else
+      false
+    end
+  end
+
+  def win_row?(a, r)
+    if a[r][0] == a[r][1] && a[r][1] == a[r][2]
       true
-    elsif (r - c).zero? && a[0][0] == a[1][1] && a[1][1] == a[2][2]
+    else
+      false
+    end
+  end
+
+  def win_diag1?(a, c, r)
+    if (r - c).zero? && a[0][0] == a[1][1] && a[1][1] == a[2][2]
       true
-    elsif r + c == 2 && a[2][0] == a[1][1] && a[1][1] == a[0][2]
+    else
+      false
+    end
+  end
+
+  def win_diag2?(a, c, r)
+    if r + c == 2 && a[2][0] == a[1][1] && a[1][1] == a[0][2]
       true
     else
       false
