@@ -34,7 +34,7 @@ To get a local copy of this repository up and running, follow these steps:
   
  Enter the names of the players. The first turn will be for the one with the X's.
  Select the position you want by following the numeric guide (1 to 9). Use your 
- turn to place three of your marks in a line o to block your opponent to do so.
+ turn to place three of your marks in a line or to block your opponent to do so.
  
  # Author
  
