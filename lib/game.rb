@@ -32,43 +32,23 @@ class Game
     c = (pos.to_i - 1) % 3
     r = (pos.to_i - 1) / 3
     a = two_d_array
-    if win_col?(a, c) || win_row?(a, r) || win_diag1?(a, c, r) || win_diag2?(a, c, r)
-      true
-    else
-      false
-    end
+    win_col?(a, c) || win_row?(a, r) || win_diag1?(a, c, r) || win_diag2?(a, c, r)
   end
 
   def win_col?(arr, col)
-    if arr[0][col] == arr[1][col] && arr[1][col] == arr[2][col]
-      true
-    else
-      false
-    end
+    arr[0][col] == arr[1][col] && arr[1][col] == arr[2][col]
   end
 
   def win_row?(arr, row)
-    if arr[row][0] == arr[row][1] && arr[row][1] == arr[row][2]
-      true
-    else
-      false
-    end
+    arr[row][0] == arr[row][1] && arr[row][1] == arr[row][2]
   end
 
   def win_diag1?(arr, col, row)
-    if (row - col).zero? && arr[0][0] == arr[1][1] && arr[1][1] == arr[2][2]
-      true
-    else
-      false
-    end
+    (row - col).zero? && arr[0][0] == arr[1][1] && arr[1][1] == arr[2][2]
   end
 
   def win_diag2?(arr, col, row)
-    if row + col == 2 && arr[2][0] == arr[1][1] && arr[1][1] == arr[0][2]
-      true
-    else
-      false
-    end
+    row + col == 2 && arr[2][0] == arr[1][1] && arr[1][1] == arr[0][2]
   end
 
   def reset
