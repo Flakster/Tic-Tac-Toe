@@ -13,7 +13,7 @@ class Game
   end
 
   def switch_player
-    self.current_player = self.current_player == 'X' ? '0' : 'X' # rubocop:disable Style/RedundantSelf
+      self.current_player = current_player == 'X' ? '0' :'X'
   end
 
   def two_d_array
