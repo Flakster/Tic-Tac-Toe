@@ -1,19 +1,19 @@
 class Board
-  attr_accessor :positions
+  attr_reader :positions
   def initialize
     @positions = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
   end
 
   def store_position(pos, mark)
-    positions[pos.to_i - 1] = mark
+    @positions[pos.to_i - 1] = mark
   end
 
   def full?
-    positions.none?(nil) ? true : false
+    @positions.none?(nil) ? true : false
   end
 
   def taken?(pos)
-    positions[pos.to_i - 1].nil? ? false : true
+    @positions[pos.to_i - 1].nil? ? false : true
   end
 
   def pick_string(num)
@@ -38,11 +38,11 @@ class Board
 
   def number(num)
     pos = (num / 3) - (num / 27) * 6
-    positions[pos].nil? ? ' ' + (pos + 1).to_s : '  '
+    @positions[pos].nil? ? ' ' + (pos + 1).to_s : '  '
   end
 
   def mark(num)
     pos = (num / 3) - (num / 27) * 6 - 3
-    positions[pos].nil? ? '  ' : ' ' + positions[pos]
+    @positions[pos].nil? ? '  ' : ' ' + positions[pos]
   end
 end
