@@ -1,6 +1,6 @@
 class Player
-  attr_accessor :name, :score
-  attr_reader :mark
+  attr_accessor :name
+  attr_reader :mark, :score
 
   def initialize(name, mark)
     @name = name
@@ -9,6 +9,6 @@ class Player
   end
 
   def increase_score
-    self.score += 1
+    @score += 1
   end
 end
