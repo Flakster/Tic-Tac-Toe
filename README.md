@@ -67,4 +67,4 @@ Give a 🌟 if you like this project!
 
 # 📝 License
 
-This work is released under the [CC0 license] (https://creativecommons.org/publicdomain/zero/1.0/legalcode)
+This work is released under the [CC0 license](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
