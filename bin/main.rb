@@ -11,6 +11,8 @@ def read_position(game)
     pos = gets.chomp
     if !digit?(pos)
       print 'Please enter a number between 1 and 9 (or 0 to exit): '
+    elsif pos == '0'
+      break
     elsif game.board.taken?(pos)
       print 'That position is already taken, please choose an empty one: '
     else

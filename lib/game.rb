@@ -2,8 +2,8 @@ require_relative '../lib/board'
 require_relative '../lib/player'
 
 class Game
-  attr_accessor :current_player, :continue
-  attr_reader :board, :players
+  attr_accessor :continue
+  attr_reader :board, :players, :current_player
   def initialize
     @board = Board.new
     @players = {}
@@ -14,7 +14,7 @@ class Game
   end
 
   def switch_player
-    self.current_player = current_player == 'X' ? '0' : 'X'
+    @current_player = current_player == 'X' ? '0' : 'X'
   end
 
   def two_d_array
@@ -54,7 +54,7 @@ class Game
 
   def reset
     @board = Board.new
-    self.current_player = 'X'
+    @current_player = 'X'
     self.continue = true
   end
 
