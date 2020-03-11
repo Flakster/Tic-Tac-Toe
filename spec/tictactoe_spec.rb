@@ -38,7 +38,7 @@ RSpec.describe Game do
   describe '#win_col?' do
     it 'returns true if the column is a winner column' do
       ar = [['X', '0', nil], ['X', '0', nil], ['X', '0', nil]]
-      expect(game.win_col?(ar ,0)).to be true
+      expect(game.win_col?(ar, 0)).to be true
     end
   end
 
