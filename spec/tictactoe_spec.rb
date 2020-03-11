@@ -63,6 +63,21 @@ RSpec.describe Game do
     end
   end
 
+  describe '#draw?' do
+    it 'returns true if all the positions of the board are full and there is no winner' do
+      game.board.store_position('1', 'X')
+      game.board.store_position('2', '0')
+      game.board.store_position('3', 'X')
+      game.board.store_position('4', '0')
+      game.board.store_position('5', 'X')
+      game.board.store_position('6', 'X')
+      game.board.store_position('7', '0')
+      game.board.store_position('8', 'X')
+      game.board.store_position('9', '0')
+      expect(game.draw?(9)).to be true
+    end
+  end
+
   describe '#reset' do
     it 'creates a new empty board for the game' do
       game.reset

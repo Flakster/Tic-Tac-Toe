@@ -52,6 +52,10 @@ class Game
     row + col == 2 && arr[2][0] == arr[1][1] && arr[1][1] == arr[0][2]
   end
 
+  def draw?(pos)
+    board.full? && !winner?(pos)
+  end
+
   def reset
     @board = Board.new
     @current_player = 'X'

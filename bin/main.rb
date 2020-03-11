@@ -62,7 +62,7 @@ while game.continue != 'N'
       game.players[game.current_player].increase_score
       break
     end
-    if game.board.full?
+    if game.draw?(position)
       board_render(game)
       puts "\n\n=> We have a draw between #{game.players['X'].name} and #{game.players['0'].name}!\n\n"
       break
