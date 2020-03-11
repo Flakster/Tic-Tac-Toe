@@ -13,6 +13,7 @@ Play it online [here](https://repl.it/@Flakster/Tic-Tac-Toe)
 # Built with
 
 - Ruby
+- RSpec
 - VSCode
 
 # Getting started
@@ -47,6 +48,11 @@ his/her marks in line.
 Sometimes, the player must use his/her turn for placing a mark that blocks the opponent's 
 path to win. In such a case, the board is likely to be full without any of the parti-
 cipants winning. If that situation arises, the game will end in a draw.
+
+# Running the tests
+
+For running the automated tests type **rspec spec/tictactoe_spec.rb** in the root
+directory of the project
  
  # Author
  
