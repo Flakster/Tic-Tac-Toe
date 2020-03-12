@@ -11,6 +11,8 @@ def read_position(game)
     pos = gets.chomp
     if !digit?(pos)
       print 'Please enter a number between 1 and 9 (or 0 to exit): '
+    elsif pos == '0'
+      break
     elsif game.board.taken?(pos)
       print 'That position is already taken, please choose an empty one: '
     else
@@ -60,7 +62,7 @@ while game.continue != 'N'
       game.players[game.current_player].increase_score
       break
     end
-    if game.board.full?
+    if game.draw?(position)
       board_render(game)
       puts "\n\n=> We have a draw between #{game.players['X'].name} and #{game.players['0'].name}!\n\n"
       break
