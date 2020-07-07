@@ -35,7 +35,7 @@ To get a local copy of this repository up and running, follow these steps:
 
 This is a two-player game in which every participant has a mark, either X or 0.
 The final goal is to place three his/her marks on a 3 x 3 board in a vertical, 
-horizontal or diagonal line.
+horizontal, or diagonal line.
 
 After typing the player's names, the first turn will be for the player with the X's 
 and then, the game will prompt alternating between the two players asking for the 
@@ -46,8 +46,8 @@ pick the more convenient position in order to achieve the goal to position three
 his/her marks in line. 
 
 Sometimes, the player must use his/her turn for placing a mark that blocks the opponent's 
-path to win. In such a case, the board is likely to be full without any of the parti-
-cipants winning. If that situation arises, the game will end in a draw.
+path to win. In such a case, the board is likely to be full without any of the participants
+winning. If that situation arises, the game will end in a draw.
 
 # Running the tests
 
@@ -64,7 +64,7 @@ directory of the project
 
 # 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page.](https://github.com/Flakster/Tic-Tac-Toe/issues)
 
