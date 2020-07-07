@@ -60,6 +60,7 @@ directory of the project
 
 * Twitter: [@Flakster ](https://twitter.com/Flakster )
 * Github: [@Flakster](https://github.com/Flakster)
+* Email: contact@carlossantamaria.co
 
 # 🤝 Contributing
 
